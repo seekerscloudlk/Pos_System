@@ -1,6 +1,7 @@
 package lk.ijse.pos.bo.custom.impl;
 
 import lk.ijse.pos.bo.custom.CustomerBO;
+import lk.ijse.pos.dao.DaoFactory;
 import lk.ijse.pos.dao.custom.CustomerDAO;
 import lk.ijse.pos.dao.custom.impl.CustomerDaoIMPL;
 import lk.ijse.pos.dto.CustomerDTO;
@@ -9,7 +10,7 @@ import lk.ijse.pos.entity.Customer;
 import java.util.ArrayList;
 
 public class CustomerBOIMPL implements CustomerBO {
-    CustomerDAO customerDAO=new CustomerDaoIMPL();
+    CustomerDAO customerDAO= DaoFactory.getInstance().getDAO(DaoFactory.DAOType.CUSTOMER);
     @Override
     public boolean saveCustomer(CustomerDTO dto) throws Exception {
         return customerDAO.save(new Customer(dto.getId(), dto.getName(),

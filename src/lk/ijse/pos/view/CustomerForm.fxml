@@ -20,11 +20,11 @@
       </Label>
       <Separator layoutX="46.0" layoutY="43.0" prefWidth="200.0" />
       <Hyperlink layoutX="539.0" layoutY="12.0" onAction="#backToHomeOnAction" text="Home" underline="true" />
-      <TextField layoutX="14.0" layoutY="67.0" promptText="Customer Id" />
-      <TextField layoutX="186.0" layoutY="67.0" prefHeight="28.0" prefWidth="215.0" promptText="Customer Name" />
-      <TextField layoutX="416.0" layoutY="67.0" prefHeight="28.0" prefWidth="170.0" promptText="Customert Salary" />
-      <TextField layoutX="14.0" layoutY="102.0" prefHeight="28.0" prefWidth="486.0" promptText="Address" />
-      <JFXButton buttonType="RAISED" layoutX="526.0" layoutY="102.0" prefHeight="28.0" prefWidth="61.0" style="-fx-background-color: #2980b9;" text="Save" textFill="WHITE">
+      <TextField fx:id="txtId" layoutX="14.0" layoutY="67.0" promptText="Customer Id" />
+      <TextField fx:id="txtName" layoutX="186.0" layoutY="67.0" prefHeight="28.0" prefWidth="215.0" promptText="Customer Name" />
+      <TextField fx:id="txtSalary" layoutX="416.0" layoutY="67.0" prefHeight="28.0" prefWidth="170.0" promptText="Customert Salary" />
+      <TextField fx:id="txtAddress" layoutX="14.0" layoutY="102.0" prefHeight="28.0" prefWidth="486.0" promptText="Address" />
+      <JFXButton fx:id="btnSaveAndUpdate" buttonType="RAISED" layoutX="526.0" layoutY="102.0" onAction="#btnSaveAndUpdateOnAction" prefHeight="28.0" prefWidth="61.0" style="-fx-background-color: #2980b9;" text="Save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

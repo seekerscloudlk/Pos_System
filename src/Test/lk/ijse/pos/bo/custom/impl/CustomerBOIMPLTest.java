@@ -9,7 +9,7 @@ class CustomerBOIMPLTest {
     }
 
     void saveCustomer() throws Exception {
-        CustomerDTO dto= new CustomerDTO("C043","Bandara","Panadura",45000);
+        CustomerDTO dto= new CustomerDTO("C044","Kamal","Panadura",45000);
         System.out.println(new CustomerBOIMPL().saveCustomer(dto));
     }
 }
