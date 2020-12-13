@@ -10,4 +10,6 @@ public interface ItemDAO extends CrudDAO<String,Item> {
    public boolean updateItem(Item item)throws Exception;
    public boolean deleteItem(String id)throws Exception;
    public ArrayList<Item> getAllItems()throws Exception;*/
+
+    public int getItemCount()throws Exception;
 }

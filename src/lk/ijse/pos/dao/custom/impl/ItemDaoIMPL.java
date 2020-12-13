@@ -59,4 +59,13 @@ public class ItemDaoIMPL implements ItemDAO {
         }
         return myItemList;
     }
+
+    @Override
+    public int getItemCount() throws Exception {
+        ResultSet set=CrudUtil.execute("SELECT COUNT(code) AS `item count` FROM Item");
+        if (set.next()){
+            return set.getInt(1);
+        }
+        return 0;
+    }
 }

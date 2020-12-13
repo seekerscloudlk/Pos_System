@@ -60,4 +60,13 @@ public class CustomerDaoIMPL implements CustomerDAO {
         }
         return myCustomerList;
     }
+
+    @Override
+    public int getCustomerCount() throws Exception {
+        ResultSet result=CrudUtil.execute("SELECT COUNT(id) AS `customer count` FROM Customer");
+        if (result.next()){
+            return result.getInt(1);
+        }
+        return 0;
+    }
 }

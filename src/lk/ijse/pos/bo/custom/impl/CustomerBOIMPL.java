@@ -53,4 +53,9 @@ public class CustomerBOIMPL implements CustomerBO {
         return dtoList;
 
     }
+
+    @Override
+    public int getCustomerCount() throws Exception {
+        return customerDAO.getCustomerCount();
+    }
 }

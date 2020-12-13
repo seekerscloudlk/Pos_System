@@ -10,4 +10,7 @@ public interface CustomerBO extends SuperBO {
     public boolean deleteCustomer(String id)throws Exception;
     public CustomerDTO getCustomer(String id)throws Exception;
     public ArrayList<CustomerDTO> getAllCustomers()throws Exception;
+
+    //-------------
+    public int getCustomerCount()throws Exception;
 }

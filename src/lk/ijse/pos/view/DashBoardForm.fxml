@@ -21,7 +21,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutY="30.0" prefHeight="48.0" prefWidth="165.0" text="0" textFill="WHITE">
+            <Label fx:id="txtCustomerCount" alignment="CENTER" layoutY="30.0" prefHeight="48.0" prefWidth="165.0" text="0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="33.0" />
                </font>
@@ -38,7 +38,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutY="31.0" prefHeight="48.0" prefWidth="165.0" text="0" textFill="WHITE">
+            <Label fx:id="txtItemCount" alignment="CENTER" layoutY="31.0" prefHeight="48.0" prefWidth="165.0" text="0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="33.0" />
                </font>
@@ -55,11 +55,6 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutY="33.0" prefHeight="48.0" prefWidth="165.0" text="0" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="33.0" />
-               </font>
-            </Label>
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -72,7 +67,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutY="34.0" prefHeight="48.0" prefWidth="165.0" text="0" textFill="WHITE">
+            <Label fx:id="txtOrderCount" alignment="CENTER" layoutY="34.0" prefHeight="48.0" prefWidth="165.0" text="0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="33.0" />
                </font>

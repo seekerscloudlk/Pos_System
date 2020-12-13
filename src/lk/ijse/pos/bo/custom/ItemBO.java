@@ -11,4 +11,7 @@ public interface ItemBO extends SuperBO {
     public boolean deleteItem(String id)throws Exception;
     public ItemDTO getItem(String id)throws Exception;
     public ArrayList<ItemDTO> getAllItems()throws Exception;
+
+    //------------
+    public int getItemCount()throws Exception;
 }

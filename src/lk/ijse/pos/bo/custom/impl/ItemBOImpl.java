@@ -48,4 +48,9 @@ public class ItemBOImpl implements ItemBO {
         }
         return dtoList;
     }
+
+    @Override
+    public int getItemCount() throws Exception {
+        return itemDAO.getItemCount();
+    }
 }
