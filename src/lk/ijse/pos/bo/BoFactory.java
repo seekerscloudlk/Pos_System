@@ -2,6 +2,7 @@ package lk.ijse.pos.bo;
 
 import lk.ijse.pos.bo.custom.impl.CustomerBOIMPL;
 import lk.ijse.pos.bo.custom.impl.ItemBOImpl;
+import lk.ijse.pos.bo.custom.impl.OrderBOIMPL;
 
 
 public class BoFactory {
@@ -26,7 +27,7 @@ public class BoFactory {
             case ITEM:
                 return (T) new ItemBOImpl();
             case ORDER:
-                return null;
+                return (T) new OrderBOIMPL();
             case ORDER_DETAIL:
                 return null;
             default:
