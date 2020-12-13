@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.pos.bo.BoFactory;
@@ -46,7 +47,22 @@ public class CustomerFormController {
         colSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
         colOperate.setCellValueFactory(new PropertyValueFactory<>("btn"));
 
+        ///---------------------------------
+        tblCustomer.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            setCustomerData(newValue);
+        });
+
     }
+
+    private void setCustomerData(CustomerTM cTm) {
+        txtId.setText(cTm.getId());
+        txtId.setEditable(false);
+        txtName.setText(cTm.getName());
+        txtAddress.setText(cTm.getAddress());
+        txtSalary.setText(String.valueOf(cTm.getSalary()));
+        btnSaveAndUpdate.setText("Update");
+    }
+
     private void loadAllCustomers() throws Exception {
         ArrayList<CustomerDTO> dtoList = bo.getAllCustomers();
         ObservableList<CustomerTM> observableList = FXCollections.observableArrayList();
@@ -59,13 +75,20 @@ public class CustomerFormController {
 
 
             //--------------
-            btn.setOnAction((e)->{
+            btn.setOnAction((e) -> {
                 try {
-                    if (bo.deleteCustomer(tm.getId())){
-                       new Alert(Alert.AlertType.CONFIRMATION,"Deleted!",ButtonType.OK).show();
-                    }else{
-                        new Alert(Alert.AlertType.WARNING,"Try Again!",ButtonType.CLOSE).show();
+
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.YES) {
+                        if (bo.deleteCustomer(tm.getId())) {
+                            loadAllCustomers();
+                            new Alert(Alert.AlertType.CONFIRMATION, "Deleted!", ButtonType.OK).show();
+                        } else {
+                            new Alert(Alert.AlertType.WARNING, "Try Again!", ButtonType.CLOSE).show();
+                        }
                     }
+
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
@@ -96,10 +119,30 @@ public class CustomerFormController {
                 txtAddress.getText(),
                 Double.parseDouble(txtSalary.getText())
         );
-        if (bo.saveCustomer(dto)) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Saved!", ButtonType.OK).show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Try Again!", ButtonType.CLOSE).show();
+
+        if (btnSaveAndUpdate.getText().equalsIgnoreCase("Save")){
+            if (bo.saveCustomer(dto)) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Saved!", ButtonType.OK).show();
+                loadAllCustomers();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Try Again!", ButtonType.CLOSE).show();
+            }
+        }else{
+            if (bo.updateCustomer(dto)) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Updated!", ButtonType.OK).show();
+                loadAllCustomers();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Try Again!", ButtonType.CLOSE).show();
+            }
         }
+    }
+
+    public void btnBackToSaveState(MouseEvent mouseEvent) {
+        txtId.setText("");
+        txtId.setEditable(true);
+        txtName.setText("");
+        txtAddress.setText("");
+        txtSalary.clear();
+        btnSaveAndUpdate.setText("Save");
     }
 }

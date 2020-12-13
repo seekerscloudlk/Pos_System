@@ -41,5 +41,13 @@
             <TableColumn fx:id="colOperate" prefWidth="138.0" text="Operate" />
         </columns>
       </TableView>
+      <Label alignment="CENTER" layoutX="557.0" layoutY="46.0" onMouseClicked="#btnBackToSaveState" prefHeight="22.0" prefWidth="27.0" text="+">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
    </children>
 </AnchorPane>
